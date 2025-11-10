@@ -26,6 +26,14 @@ export const PREFERRED_INDUSTRIES = [
     { value: 'Consumer Goods', label: 'Consumer Goods' },
 ];
 
+export const COUNTRIES = [
+    { value: 'Nepal', label: 'Nepal' },
+    { value: 'India', label: 'India' },
+    { value: 'China', label: 'China' },
+    { value: 'America', label: 'America' },
+    { value: 'England', label: 'England' },
+];
+
 export const ALERT_TYPE_OPTIONS = [
     { value: 'upper', label: 'Upper' },
     { value: 'lower', label: 'Lower' },
