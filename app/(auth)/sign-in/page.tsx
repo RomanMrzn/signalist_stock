@@ -6,31 +6,24 @@ import { useForm } from "react-hook-form";
 
 const SignInPage = () => {
   const {
-      register,
-      handleSubmit,
-      control,
-      formState: { errors, isSubmitting },
-    } = useForm<SignUpFormData>({
-      defaultValues: {
-        fullName: "",
-        email: "",
-        password: "",
-        country: "NEPAL",
-        investmentGoals: "Growth",
-        riskTolerance: "Medium",
-        preferredIndustry: "Technology",
-      },
-  
-      mode: "onBlur",
-    });
-  
-    const onSubmit = async (data: SignUpFormData) => {
-      try {
-        console.log(data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<SignInFormData>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onBlur",
+  });
+
+  const onSubmit = async (data: SignInFormData) => {
+    try {
+      console.log("Sign in", data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div className="mt-10">
       <h1 className="form-title">Log In Your Account</h1>
@@ -41,7 +34,11 @@ const SignInPage = () => {
           placeholder="Enter your email"
           register={register}
           error={errors.email}
-          validation={{ required: "Email is required",pattern:/^\S+@\S+$/i,message: "Invalid email address"}}
+          validation={{
+            required: "Email is required",
+            pattern: /^\S+@\S+$/i,
+            message: "Invalid email address",
+          }}
         />
 
         <InputField
@@ -62,10 +59,14 @@ const SignInPage = () => {
           {isSubmitting ? "Logging In..." : "Log In"}
         </Button>
 
-        <FooterLink text="Don't have a account?" linkText="Sign-Up" href="/sign-up" />
+        <FooterLink
+          text="Don't have a account?"
+          linkText="Sign-Up"
+          href="/sign-up"
+        />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default SignInPage
+export default SignInPage;
